@@ -1,13 +1,13 @@
 import pytest
 from owslib.wms import WebMapService
 
-wms = WebMapService('https://geoweb.so.ch/wms/wms_lidar?SERVICE=WMS&Request=GetCapabilities',
+wms = WebMapService('https://geo.so.ch/api/wms?ERVICE=WMS&Request=GetCapabilities',
                     version='1.3.0')
 
 
 @pytest.mark.parametrize("layer_name,layer_title", [
-    ("dom_relief2014_50cm", "DOM Relief 2014 - Auflösung 50cm"),
-    ("dtm_relief2014_50cm", "DTM Relief 2014 - Auflösung 50cm")
+    ("ch.so.agi.lidar_2014.dom_relief", "Relief digitales Oberflächenmodell (LiDAR 2014)"),
+    ("ch.so.agi.lidar_2014.dtm_relief", "Relief digitales Terrainmodell 2014 (LiDAR 2014)")
 ])
 def test_layer(layer_name, layer_title):
     assert layer_name in wms.contents
