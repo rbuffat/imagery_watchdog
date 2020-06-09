@@ -2,12 +2,14 @@ import pytest
 from owslib.wms import WebMapService
 import requests
 
+headers = {'User-Agent': 'Mozilla/5.0 (compatible; MSIE 6.0; Imagery Watchdog CI check)'}
+
 
 @pytest.fixture(scope="module")
 def wms_kt_zh_ogdlidar():
     url = 'https://wms.zh.ch/OGDLidarZH?SERVICE=WMS&Request=GetCapabilities'
     try:
-        wms = WebMapService(url, version='1.3.0')
+        wms = WebMapService(url, version='1.3.0', headers=headers)
         yield wms
     except:
         print(requests.get(url).text)
