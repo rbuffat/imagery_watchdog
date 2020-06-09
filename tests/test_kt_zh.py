@@ -12,7 +12,7 @@ def wms_kt_zh_ogdlidar():
         wms = WebMapService(url, version='1.3.0', headers=headers)
         yield wms
     except:
-        print(requests.get(url).text)
+        print(requests.get(url, headers=headers).text)
         yield None
 
 
