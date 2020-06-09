@@ -31,7 +31,7 @@ def wms_kt_zh_ortho():
     ("dtm2014hillshade", "Terrainschummerung"),
     ("dom2014hillshade", "Oberflächenschummerung"),
 ])
-def test_layer(layer_name, layer_title, wms_kt_zh_ogdlidar):
+def test_layer_lidar(layer_name, layer_title, wms_kt_zh_ogdlidar):
     assert layer_name in wms_kt_zh_ogdlidar.contents
     assert wms_kt_zh_ogdlidar[layer_name].title == layer_title
 
@@ -41,6 +41,6 @@ def test_layer(layer_name, layer_title, wms_kt_zh_ogdlidar):
     ("ortho_w_15", "Orthofoto ZH Frühjahr 2015/16 RGB"),
     ("ortho_s_14", "Orthofoto ZH Sommer 2014/15 RGB"),
 ])
-def test_layer(layer_name, layer_title, wms_kt_zh_ortho):
+def test_layer_ortho(layer_name, layer_title, wms_kt_zh_ortho):
     assert layer_name in wms_kt_zh_ortho.contents
     assert wms_kt_zh_ortho[layer_name].title == layer_title
