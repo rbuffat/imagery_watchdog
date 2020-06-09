@@ -8,19 +8,21 @@ def wms_kt_zh_ogdlidar():
     url = 'https://wms.zh.ch/OGDLidarZH?SERVICE=WMS&Request=GetCapabilities'
     try:
         wms = WebMapService(url, version='1.3.0')
+        yield wms
     except:
         print(requests.get(url).text)
-    yield wms
+        yield None
 
 
 @pytest.fixture(scope="module")
 def wms_kt_zh_ortho():
-    url='https://wms.zh.ch/OGDOrthoZH?SERVICE=WMS&Request=GetCapabilities'
+    url = 'https://wms.zh.ch/OGDOrthoZH?SERVICE=WMS&Request=GetCapabilities'
     try:
         wms = WebMapService(url, version='1.3.0')
+        yield wms
     except:
         print(requests.get(url).text)
-    yield wms
+        yield None
 
 
 @pytest.mark.parametrize("layer_name,layer_title", [
