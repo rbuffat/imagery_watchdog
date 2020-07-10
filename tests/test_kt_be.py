@@ -10,8 +10,8 @@ def wms_kt_be():
 
 
 @pytest.mark.parametrize("layer_name,layer_title", [
-    ("GEODB.LDOM50CM_LORELIEF", "Digitales Oberflaechenmodell 50cm, Relief"),
-    ("GEODB.LDTM50CM_LTRELIEF", "Digitales Terrainmodell 50cm, Relief"),
+    ("GEODB.LDOM50CM_LORELIEF_STANDARD", "Digitales Oberflächenmodell 50cm, Relief"),
+    ("GEODB.LDTM50CM_LTRELIEF_STANDARD", "Digitales Terrainmodell 50cm, Relief"),
 ])
 def test_layer(layer_name, layer_title, wms_kt_be):
     assert layer_name in wms_kt_be.contents
